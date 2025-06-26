@@ -14,7 +14,7 @@ export async function getNotes(req, res) {
 
 export async function getNote(req, res) {
     try {
-        const note = await Note.find(req.params.id);
+        const note = await Note.find({ _id: req.params.id });
         if (!note) {
             return res.status(404).json({
                 message: `Note with ID ${req.params.id} not found`,
